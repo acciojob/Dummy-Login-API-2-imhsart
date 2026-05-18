@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const users = [
-  { email: 'test@example.com', password: 'correctpassword' }
+  { email: 'abc@gmail.com', password: 'correctpassword' }
 ]
 
 const App = () => {
@@ -18,12 +18,12 @@ const App = () => {
       const foundUser = users.find(u => u.email === enteredEmail)
 
       if (!foundUser) {
-        setError({ userError: enteredEmail, passError: '' }) 
+        setError({ userError: `${enteredEmail}=email`, passError: '' }) 
         return
       }
 
       if (foundUser.password !== enteredPass) {
-        setError({ userError: '', passError: enteredPass }) 
+        setError({ userError: '', passError: `${enteredPass} = password` })
         return
       }
 
