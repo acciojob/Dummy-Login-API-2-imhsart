@@ -10,11 +10,11 @@ const App = () => {
     let enteredEmail = email
     let enteredPass = password
       setTimeout(() => {
-        if(enteredEmail === '' || enteredEmail !== 'admin12@gmail.com'){
+        if(enteredEmail === '' || enteredEmail !== 'admin@gmail.com'){
           setError({userError: 'User not found', passError: ''})
           return
         }
-        if(enteredPass === '' || enteredPass !== '12345'){
+        if(enteredPass === '' || enteredPass !== '123456'){
           setError({userError:'', passError: 'Password Incorrect'})
           return
         }
@@ -26,7 +26,7 @@ const App = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input id='input-email' value={email} type='email' onChange={e => {
+        <input id='input-email' value={email} type='text' onChange={e => {
           setEmail(e.target.value)
           setError({userError:'', passError:''})
           }}></input>
