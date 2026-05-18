@@ -7,16 +7,17 @@ const App = () => {
 
   function handleSubmit(e){
     e.preventDefault()
+    let enteredEmail = email
+    let enteredPass = password
       setTimeout(() => {
-        if(email === '' || email !== 'admin12@gmail.com'){
+        if(enteredEmail === '' || enteredEmail !== 'admin12@gmail.com'){
           setError({userError: 'User not found', passError: ''})
           return
         }
-        if(password === '' || password !== '12345'){
+        if(enteredPass === '' || enteredPass !== '12345'){
           setError({userError:'', passError: 'Password Incorrect'})
           return
         }
-        console.log('Logged In Successfully!')
         setError({userError:'', passError:''})
         setPassword('')
         setEmail('')
