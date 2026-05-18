@@ -23,7 +23,7 @@ const App = () => {
         return
       }
 
-      if (foundUser.password !== enteredPass) {
+      if (foundUser.password != enteredPass) {
         setError({ userError: '', passError: 'Password Incorrect' })
         return
       }
