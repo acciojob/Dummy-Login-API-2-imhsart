@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const users = [
   { email: 'abc@gmail.com', password: '12' },
-  { email: 'def@gmail.com', password: '34' },
+  { email: 'def@gmail.com', password: '1234' },
 ]
 
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
       }
 
       if (foundUser.password !== enteredPass) {
-        setError({ userError: '', passError: `${enteredEmail}:${enteredPass}` })
+        setError({ userError: '', passError: 'Password Incorrect' })
         return
       }
 
