@@ -10,7 +10,7 @@ const App = () => {
 
     setTimeout(() => {
       if(email !== 'admin12@gmail.com'){
-      setError({userError: 'User Not Found', passError: ''})
+      setError({userError: 'User not found', passError: ''})
       return
       }
       if(password !== '12345'){
