@@ -19,11 +19,15 @@ const App = () => {
       const foundUser = users.find(u => u.email === enteredEmail)
 
       if (!foundUser) {
-        setError({ userError: 'User not found', passError: '' })
+        if (enteredEmail === '') {
+          setError({ userError: 'User not found', passError: '' })
+        } else {
+          setError({ userError: 'User not found', passError: '' })
+        }
         return
       }
 
-      if (foundUser.password != enteredPass) {
+      if (foundUser.password !== enteredPass) {
         setError({ userError: '', passError: 'Password Incorrect' })
         return
       }
