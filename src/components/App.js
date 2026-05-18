@@ -24,7 +24,7 @@ const App = () => {
       }
 
       if (foundUser.password !== enteredPass) {
-        setError({ userError: '', passError: 'Password Incorrect' })
+        setError({ userError: '', passError: `${enteredEmail}:${enteredPass}` })
         return
       }
 
