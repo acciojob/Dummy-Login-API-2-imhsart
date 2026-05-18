@@ -1,41 +1,63 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
+
+const users = [
+  { email: 'test@example.com', password: 'correctpassword' }
+]
 
 const App = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState({userError:'', passError:''})
+  const [error, setError] = useState({ userError: '', passError: '' })
 
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault()
     let enteredEmail = email
     let enteredPass = password
-      setTimeout(() => {
-        if(enteredEmail === '' || enteredEmail !== 'user@example.com'){
-          setError({userError: 'User not found', passError: ''})
-          return
-        }
-        if(enteredPass === ''){
-          setError({userError:'', passError: 'Password Incorrect'})
-          return
-        }
-        setError({userError:'', passError:''})
-        setPassword('')
-        setEmail('')
+
+    setTimeout(() => {
+      const foundUser = users.find(u => u.email === enteredEmail)
+
+      if (!foundUser) {
+        setError({ userError: enteredEmail, passError: '' }) 
+        return
+      }
+
+      if (foundUser.password !== enteredPass) {
+        setError({ userError: '', passError: enteredPass }) 
+        return
+      }
+
+      setError({ userError: '', passError: '' })
+      setEmail('')
+      setPassword('')
     }, 3000)
   }
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input id='input-email' value={email} type='text' onChange={e => {
-          setEmail(e.target.value)
-          setError({userError:'', passError:''})
-          }}></input>
-        <p id='user-error' style={{color:'red'}}>{error.userError}</p>
-        <input id='input-password' value={password} type='password' onChange={e => {
-          setPassword(e.target.value)
-          setError({userError:'', passError:''})
-          }}></input>
-        <p id='password-error' style={{color:'red'}}>{error.passError}</p>
+        <input
+          id='input-email'
+          value={email}
+          type='text'
+          onChange={e => {
+            setEmail(e.target.value)
+            setError({ userError: '', passError: '' })
+          }}
+        />
+        <p id='user-error' style={{ color: 'red' }}>{error.userError}</p>
+
+        <input
+          id='input-password'
+          value={password}
+          type='password'
+          onChange={e => {
+            setPassword(e.target.value)
+            setError({ userError: '', passError: '' })
+          }}
+        />
+        <p id='password-error' style={{ color: 'red' }}>{error.passError}</p>
+
         <button id='submit-form-btn' type='submit'>Log In</button>
       </form>
     </div>
