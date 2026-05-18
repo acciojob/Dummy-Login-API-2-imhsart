@@ -10,11 +10,11 @@ const App = () => {
     let enteredEmail = email
     let enteredPass = password
       setTimeout(() => {
-        if(enteredEmail === '' || enteredEmail !== 'admin@gmail.com'){
+        if(enteredEmail === ''){
           setError({userError: 'User not found', passError: ''})
           return
         }
-        if(enteredPass === '' || enteredPass !== '123456'){
+        if(enteredPass === ''){
           setError({userError:'', passError: 'Password Incorrect'})
           return
         }
