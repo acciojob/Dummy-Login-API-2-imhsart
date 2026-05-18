@@ -10,6 +10,10 @@ const App = () => {
     let enteredEmail = email
     let enteredPass = password
       setTimeout(() => {
+        if(enteredEmail === '' && enteredPass === ''){
+          setError({userError:'User not found', passError:'Password Incorrect'})
+          return
+        }
         if(enteredEmail === ''){
           setError({userError: 'User not found', passError: ''})
           return
