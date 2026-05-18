@@ -18,7 +18,7 @@ const App = () => {
         return
       }
 
-      if (enteredPass !== '12') {
+      if (enteredPass != '12') {
         setError({ userError: '', passError: 'Password Incorrect' })
         return
       }
