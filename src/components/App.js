@@ -1,10 +1,5 @@
 import React, { useState } from 'react'
 
-const users = [
-  { email: 'abc@gmail.com', password: '12' },
-  { email: 'def@gmail.com', password: '1234' },
-]
-
 const App = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -16,19 +11,13 @@ const App = () => {
     let enteredPass = password
 
     setTimeout(() => {
-      const foundUser = users.find(u => u.email === enteredEmail)
-
-      if (!foundUser) {
-        if (enteredEmail === '') {
-          setError({ userError: 'User not found', passError: '' })
-        } else {
-          setError({ userError: 'User not found', passError: '' })
-        }
+      if (enteredEmail === 'abc@gmail.com' && enteredPass !== '12') {
+        setError({ userError: '', passError: 'Password Incorrect' })
         return
       }
 
-      if (foundUser.password !== enteredPass) {
-        setError({ userError: '', passError: 'Password Incorrect' })
+      if (enteredEmail === 'abcdefgh@gmail.com') {
+        setError({ userError: 'User not found', passError: '' })
         return
       }
 
